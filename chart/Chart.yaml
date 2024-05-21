@@ -25,6 +25,5 @@ appVersion: APP_VERSION
 
 dependencies:
 - name: etcd
-  alias: etcd-backend
-  version: "1.2.3"
+  version: "10.0.11"
   repository: "https://charts.bitnami.com/bitnami"

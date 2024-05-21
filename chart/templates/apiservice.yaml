@@ -10,3 +10,4 @@ spec:
   versionPriority: 15
   service:
     name: {{ include "backend.fullname" . }}
+    namespace: {{ .Release.Namespace }}
