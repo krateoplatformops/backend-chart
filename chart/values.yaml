@@ -57,12 +57,14 @@ resources: {}
 
 livenessProbe:
   httpGet:
-    path: /
-    port: http
+    path: /livez
+    port: https
+    scheme: HTTPS
 readinessProbe:
   httpGet:
-    path: /
-    port: http
+    path: /readyz
+    port: https
+    scheme: HTTPS
 
 # Additional volumes on the output Deployment definition.
 volumes:
@@ -80,7 +82,7 @@ tolerations: []
 
 affinity: {}
 
-etcd-backend:
+etcd:
   auth:
     rbac:
       create: false

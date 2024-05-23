@@ -35,11 +35,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - --etcd-servers=etcd-backend.demo-system.svc.cluster.local:2379
+            - --etcd-servers=backend-etcd.{{ .Release.Namespace }}.svc.cluster.local:2379
             - --cert-dir=/tmp/certs
             - --v=3
           ports:
-            - name: http
+            - name: https
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
