@@ -1,4 +1,4 @@
-name: release
+name: release-tag
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
         uses: tdemin/find-latest-tag@v1
         id: app_version
         with:
-          repo: https://${{ secrets.HELM_CHARTS_BOT }}@github.com/krateoplatformops/installer.git
+          repo: https://${{ secrets.HELM_CHARTS_BOT }}@github.com/krateoplatformops/backend.git
 
       - name: Checkout
         uses: actions/checkout@v3
