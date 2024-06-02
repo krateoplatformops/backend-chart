@@ -81,9 +81,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-etcd:
-  auth:
-    rbac:
-      create: false
-  replicaCount: 1
