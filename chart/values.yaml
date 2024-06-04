@@ -81,3 +81,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+etcd:
+  servers: etcd.krateo-system.svc.cluster.local:2379

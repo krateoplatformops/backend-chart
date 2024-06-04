@@ -35,7 +35,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - --etcd-servers=backend-etcd.{{ .Release.Namespace }}.svc.cluster.local:2379
+            - --etcd-servers={{ .Values.etcd.servers }}
             - --cert-dir=/tmp/certs
             - --v=3
           ports:
