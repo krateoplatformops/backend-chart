@@ -38,6 +38,7 @@ spec:
             - --etcd-servers={{ .Values.etcd.service.name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.etcd.service.port }}
             - --cert-dir=/tmp/certs
             - --v=3
+            - --tidy=true
           ports:
             - name: https
               containerPort: {{ .Values.service.port }}
