@@ -42,7 +42,7 @@ rules:
   - get
   - list
 - apiGroups:
-  - widgets.krateo.io
+  - templates.krateo.io
   resources:
   - "*"
   verbs:
