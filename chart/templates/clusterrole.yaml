@@ -10,6 +10,7 @@ rules:
   - ""
   resources:
   - namespaces
+  - configmaps
   - secrets
   verbs:
   - get
