@@ -1,0 +1,28 @@
+# Backend API Calls - Examples 
+
+## Get a Widget
+
+### Calling an External API
+
+```sh
+kubectl get widget.templates.krateo.io/external-api \
+    --kubeconfig=$PWD/cyberjoker.json \
+    -n demo-system -o yaml
+```
+
+### Calling an Internal API
+
+```sh
+kubectl get widget.templates.krateo.io/internal-api \
+    --kubeconfig=$PWD/cyberjoker.json \
+    -n demo-system -o yaml
+```
+
+## Get a Form
+
+```sh
+kubectl get form.templates.krateo.io/fireworksapp \
+    --kubeconfig=$PWD/cyberjoker.json \
+    -n demo-system -o yaml
+```
+

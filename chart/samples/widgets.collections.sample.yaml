@@ -1,0 +1,53 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: column-props
+  namespace: demo-system
+data:
+  bgColor: "#1f1e33"
+  width: "800"
+---
+apiVersion: templates.krateo.io/v1alpha1
+kind: Collection
+metadata:
+  name: column
+  namespace: demo-system
+spec:
+  type: column
+  propsRef:
+    name: column-props
+    namespace: demo-system 
+  widgetsRefs:
+  - apiVersion: templates.krateo.io/v1alpha1
+    resource: widgets
+    name: static
+    namespace: demo-system
+  - apiVersion: templates.krateo.io/v1alpha1
+    resource: widgets
+    name: external-api
+    namespace: demo-system
+---
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: row-props
+  namespace: demo-system
+data:
+  bgColor: "#1f1e33"
+  height: "100"
+---
+apiVersion: templates.krateo.io/v1alpha1
+kind: Collection
+metadata:
+  name: row
+  namespace: demo-system
+spec:
+  type: row
+  propsRef:
+    name: row-props
+    namespace: demo-system 
+  widgetsRefs:
+  - apiVersion: templates.krateo.io/v1alpha1
+    resource: collections
+    name: column
+    namespace: demo-system
