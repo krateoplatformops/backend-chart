@@ -1,0 +1,141 @@
+{
+    "crifusecase1s": {
+        "apiVersion": "azuredevops.krateo.io/v1alpha1",
+        "kind": "GitRepository",
+        "metadata": {
+            "annotations": {
+                "krateo.io/connector-verbose": "false",
+                "krateo.io/external-create-pending": "2024-06-18T13:48:38Z",
+                "krateo.io/external-create-succeeded": "2024-06-18T13:48:39Z",
+                "krateo.io/external-name": "d9f46103-8e2b-44f2-862c-89c1ddfddddf",
+                "krateo.io/management-policy": "observe-create-update",
+                "meta.helm.sh/release-name": "es24-redis1",
+                "meta.helm.sh/release-namespace": "demo-system"
+            },
+            "creationTimestamp": "2024-06-18T13:48:37Z",
+            "finalizers": [
+                "finalizer.managedresource.krateo.io"
+            ],
+            "generation": 1,
+            "labels": {
+                "app.kubernetes.io/managed-by": "Helm"
+            },
+            "managedFields": [
+                {
+                    "apiVersion": "azuredevops.krateo.io/v1alpha1",
+                    "fieldsType": "FieldsV1",
+                    "fieldsV1": {
+                        "f:metadata": {
+                            "f:annotations": {
+                                ".": {},
+                                "f:krateo.io/connector-verbose": {},
+                                "f:krateo.io/management-policy": {},
+                                "f:meta.helm.sh/release-name": {},
+                                "f:meta.helm.sh/release-namespace": {}
+                            },
+                            "f:labels": {
+                                ".": {},
+                                "f:app.kubernetes.io/managed-by": {}
+                            }
+                        },
+                        "f:spec": {
+                            ".": {},
+                            "f:connectorConfigRef": {
+                                ".": {},
+                                "f:name": {},
+                                "f:namespace": {}
+                            },
+                            "f:deletionPolicy": {},
+                            "f:initialize": {},
+                            "f:name": {},
+                            "f:projectRef": {
+                                ".": {},
+                                "f:name": {},
+                                "f:namespace": {}
+                            }
+                        }
+                    },
+                    "manager": "controller",
+                    "operation": "Update",
+                    "time": "2024-06-18T13:48:37Z"
+                },
+                {
+                    "apiVersion": "azuredevops.krateo.io/v1alpha1",
+                    "fieldsType": "FieldsV1",
+                    "fieldsV1": {
+                        "f:metadata": {
+                            "f:annotations": {
+                                "f:krateo.io/external-create-pending": {},
+                                "f:krateo.io/external-create-succeeded": {},
+                                "f:krateo.io/external-name": {}
+                            },
+                            "f:finalizers": {
+                                ".": {},
+                                "v:\"finalizer.managedresource.krateo.io\"": {}
+                            }
+                        }
+                    },
+                    "manager": "manager",
+                    "operation": "Update",
+                    "time": "2024-06-18T13:48:39Z"
+                },
+                {
+                    "apiVersion": "azuredevops.krateo.io/v1alpha1",
+                    "fieldsType": "FieldsV1",
+                    "fieldsV1": {
+                        "f:status": {
+                            ".": {},
+                            "f:conditions": {},
+                            "f:defaultBranch": {},
+                            "f:id": {},
+                            "f:remoteUrl": {},
+                            "f:sshUrl": {},
+                            "f:url": {}
+                        }
+                    },
+                    "manager": "manager",
+                    "operation": "Update",
+                    "subresource": "status",
+                    "time": "2024-06-18T13:48:39Z"
+                }
+            ],
+            "name": "es24-redis1",
+            "resourceVersion": "29734",
+            "uid": "1bf19cd4-6802-4ea6-80fa-358715feee99"
+        },
+        "spec": {
+            "connectorConfigRef": {
+                "name": "tfshub-crifnet",
+                "namespace": "krateo-system"
+            },
+            "deletionPolicy": "Orphan",
+            "initialize": true,
+            "name": "es24-redis",
+            "projectRef": {
+                "name": "es24-redis1",
+                "namespace": "demo-system"
+            }
+        },
+        "status": {
+            "conditions": [
+                {
+                    "lastTransitionTime": "2024-06-18T13:48:39Z",
+                    "reason": "ReconcileSuccess",
+                    "status": "True",
+                    "type": "Synced"
+                },
+                {
+                    "lastTransitionTime": "2024-06-18T13:48:39Z",
+                    "reason": "Available",
+                    "status": "True",
+                    "type": "Ready"
+                }
+            ],
+            "defaultBranch": "refs/heads/main",
+            "id": "d9f46103-8e2b-44f2-862c-89c1ddfddddf",
+            "remoteUrl": "https://CRIF-krateo@dev.azure.com/CRIF-krateo/CRIF/_git/es24-redis",
+            "sshUrl": "git@ssh.dev.azure.com:v3/CRIF-krateo/CRIF/es24-redis",
+            "url": "https://dev.azure.com/CRIF-krateo/9b7f219c-b0f0-4334-ab23-bbec2894aa61/_apis/git/repositories/d9f46103-8e2b-44f2-862c-89c1ddfddddf"
+        }
+    }
+}

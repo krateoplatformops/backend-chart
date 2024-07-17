@@ -1,0 +1,136 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.helm.sh/release-name: demo-matteo-1
+    meta.helm.sh/release-namespace: demo-system
+  labels:
+    app.kubernetes.io/instance: demo-matteo-1
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: fireworks-app
+    app.kubernetes.io/version: 0.1.0
+    helm.sh/chart: fireworks-app-0.1.0
+    krateo.io/composition-id: c42be663-dc6b-4b4a-8e9f-b43b0ce5ab57
+  name: demo-matteo-1-fireworks-app
+  namespace: krateo-system
+spec:
+  destination:
+    namespace: fireworks-app
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: chart/
+    repoURL: https://github.com/krateoplatformops-archive/fireworksapp-test-v2
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+status:
+  conditions:
+  - lastTransitionTime: "2024-06-24T07:48:31Z"
+    message: 'Failed sync attempt to 815e998d17efa427fbe5ead294715ee181aebf75: one
+      or more objects failed to apply, reason: Service "demo-matteo-1-fireworks-app-fireworks-app-skeleton"
+      is invalid: spec.ports[0].nodePort: Invalid value: 31180: provided port is already
+      allocated (retried 5 times).'
+    type: SyncError
+  controllerNamespace: krateo-system
+  health:
+    status: Degraded
+  operationState:
+    finishedAt: "2024-06-24T07:48:31Z"
+    message: 'one or more objects failed to apply, reason: Service "demo-matteo-1-fireworks-app-fireworks-app-skeleton"
+      is invalid: spec.ports[0].nodePort: Invalid value: 31180: provided port is already
+      allocated (retried 5 times).'
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        revision: 815e998d17efa427fbe5ead294715ee181aebf75
+        syncOptions:
+        - CreateNamespace=true
+    phase: Failed
+    retryCount: 5
+    startedAt: "2024-06-24T07:43:21Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/demo-matteo-1-fireworks-app-fireworks-app-skeleton
+          unchanged
+        name: demo-matteo-1-fireworks-app-fireworks-app-skeleton
+        namespace: fireworks-app
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Failed
+        kind: Service
+        message: 'Service "demo-matteo-1-fireworks-app-fireworks-app-skeleton" is
+          invalid: spec.ports[0].nodePort: Invalid value: 31180: provided port is
+          already allocated'
+        name: demo-matteo-1-fireworks-app-fireworks-app-skeleton
+        namespace: fireworks-app
+        status: SyncFailed
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/demo-matteo-1-fireworks-app-fireworks-app-skeleton
+          unchanged
+        name: demo-matteo-1-fireworks-app-fireworks-app-skeleton
+        namespace: fireworks-app
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 815e998d17efa427fbe5ead294715ee181aebf75
+      source:
+        path: chart/
+        repoURL: https://github.com/krateoplatformops-archive/fireworksapp-test-v2
+        targetRevision: main
+  reconciledAt: "2024-06-24T13:43:44Z"
+  resources:
+  - health:
+      status: Missing
+    kind: Service
+    name: demo-matteo-1-fireworks-app-fireworks-app-skeleton
+    namespace: fireworks-app
+    status: OutOfSync
+    version: v1
+  - kind: ServiceAccount
+    name: demo-matteo-1-fireworks-app-fireworks-app-skeleton
+    namespace: fireworks-app
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: Deployment "demo-matteo-1-fireworks-app-fireworks-app-skeleton" exceeded
+        its progress deadline
+      status: Degraded
+    kind: Deployment
+    name: demo-matteo-1-fireworks-app-fireworks-app-skeleton
+    namespace: fireworks-app
+    status: Synced
+    version: v1
+  sourceType: Helm
+  summary:
+    images:
+    - ghcr.io/krateoplatformops-archive/fireworksapp-test-v2:latest
+  sync:
+    comparedTo:
+      destination:
+        namespace: fireworks-app
+        server: https://kubernetes.default.svc
+      source:
+        path: chart/
+        repoURL: https://github.com/krateoplatformops-archive/fireworksapp-test-v2
+        targetRevision: main
+    revision: 815e998d17efa427fbe5ead294715ee181aebf75
+    status: OutOfSync

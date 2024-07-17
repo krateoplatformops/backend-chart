@@ -1,0 +1,8 @@
+status:
+  conditions:
+  - lastTransitionTime: "2024-06-24T07:43:21Z"
+    message: 'connect failed: retrieving from repo credentials: cannot get github-repo-creds
+      secret: Secret "github-repo-creds" not found'
+    reason: ReconcileError
+    status: "False"
+    type: Synced

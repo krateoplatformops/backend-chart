@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  values: |
+    { "organizationName": "krateoplatformops-archive",
+      "repositoryName": "fireworksapp-test-v2",
+      "serviceType": "NodePort",
+      "servicePort": "31180"
+    }
+kind: ConfigMap
+metadata:
+  annotations:
+    meta.helm.sh/release-name: demo-matteo-1
+    meta.helm.sh/release-namespace: demo-system
+  labels:
+    app.kubernetes.io/instance: demo-matteo-1
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: fireworks-app
+    app.kubernetes.io/version: 0.1.0
+    helm.sh/chart: fireworks-app-0.1.0
+    krateo.io/composition-id: c42be663-dc6b-4b4a-8e9f-b43b0ce5ab57
+  name: demo-matteo-1-fireworks-app-replace-values
+  namespace: demo-system
+  
