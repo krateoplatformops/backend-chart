@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: argocd-endpoint
+  namespace: demo-system
+stringData:
+  server-url: https://argocd-server.krateo-system.svc:443
+  username: admin
+  password: Ns-qwf-BlElAQ84G
+  insecure: "true"
+---

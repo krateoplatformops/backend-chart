@@ -1,0 +1,59 @@
+apiVersion: composition.krateo.io/v0-1-0
+kind: FireworksApp
+metadata:
+  annotations:
+    krateo.io/external-create-pending: "2024-06-24T07:43:21Z"
+    krateo.io/external-create-succeeded: "2024-06-24T07:46:21Z"
+  name: demo-matteo-1
+  namespace: demo-system
+spec:
+  app:
+    service:
+      port: 31180
+      type: NodePort
+  argocd:
+    application:
+      destination:
+        namespace: fireworks-app
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        path: chart/
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+    namespace: krateo-system
+  deletionPolicy: Delete
+  git:
+    deletionPolicy: Orphan
+    fromRepo:
+      branch: main
+      credentials:
+        authMethod: basic
+        secretRef:
+          key: token
+          name: github-repo-creds
+          namespace: krateo-system
+      name: krateo-v2-template-fireworksapp
+      org: krateoplatformops
+      path: skeleton/
+      scmUrl: https://github.com
+    insecure: true
+    toRepo:
+      apiUrl: https://api.github.com
+      branch: main
+      credentials:
+        authMethod: basic
+        secretRef:
+          key: token
+          name: github-repo-creds
+          namespace: krateo-system
+      deletionPolicy: Delete
+      initialize: true
+      name: fireworksapp-test-v2
+      org: krateoplatformops-archive
+      path: /
+      private: false
+      scmUrl: https://github.com
+    unsupportedCapabilities: true

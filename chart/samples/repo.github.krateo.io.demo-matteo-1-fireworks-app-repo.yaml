@@ -1,0 +1,28 @@
+apiVersion: github.krateo.io/v1alpha1
+kind: Repo
+metadata:
+  annotations:
+    krateo.io/external-name: demo-matteo-1-fireworks-app-repo
+    meta.helm.sh/release-name: demo-matteo-1
+    meta.helm.sh/release-namespace: demo-system
+  labels:
+    app.kubernetes.io/instance: demo-matteo-1
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: fireworks-app
+    app.kubernetes.io/version: 0.1.0
+    helm.sh/chart: fireworks-app-0.1.0
+    krateo.io/composition-id: c42be663-dc6b-4b4a-8e9f-b43b0ce5ab57
+  name: demo-matteo-1-fireworks-app-repo
+  namespace: demo-system
+spec:
+  apiUrl: https://api.github.com
+  credentials:
+    secretRef:
+      key: token
+      name: github-repo-creds
+      namespace: krateo-system
+  deletionPolicy: Delete
+  initialize: true
+  name: fireworksapp-test-v2
+  org: krateoplatformops-archive
+

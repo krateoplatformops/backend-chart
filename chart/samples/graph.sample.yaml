@@ -1,0 +1,44 @@
+---
+apiVersion: templates.krateo.io/v1alpha1
+kind: ResourceTree
+metadata:
+  name: fireworksapp-demo-matteo-1
+spec:
+  tree:
+  - apiVersion: v1
+    resource: configmaps
+    name: demo-matteo-1-fireworks-app-replace-values
+    namespace: demo-system
+    parentRefs:
+    - apiVersion: composition.krateo.io/v0-1-0
+      resource: fireworksapps
+      name: demo-matteo-1
+      namespace: demo-system
+
+  - apiVersion: github.krateo.io/v1alpha1
+    resource: repoes
+    name: demo-matteo-1-fireworks-app-repo
+    parentRefs:
+    - apiVersion: composition.krateo.io/v0-1-0
+      resource: fireworksapps
+      name: demo-matteo-1
+      namespace: demo-system
+    
+  - apiVersion: git.krateo.io/v1alpha1
+    resource: repoes
+    name: demo-matteo-1-fireworks-app-repo
+    parentRefs:
+    - apiVersion: composition.krateo.io/v0-1-0
+      resource: fireworksapps
+      name: demo-matteo-1
+      namespace: demo-system
+    
+  - apiVersion: argoproj.io/v1alpha1
+    resource: applications
+    name: demo-matteo-1-fireworks-app
+    namespace: krateo-system
+    parentRefs:
+    - apiVersion: composition.krateo.io/v0-1-0
+      resource: fireworksapps
+      name: demo-matteo-1
+      namespace: demo-system

@@ -1,0 +1,7 @@
+status:
+  conditions:
+  - lastTransitionTime: "2024-06-24T13:43:53Z"
+    message: ""
+    reason: Available
+    status: "True"
+    type: Ready
