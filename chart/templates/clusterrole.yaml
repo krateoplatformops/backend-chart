@@ -65,3 +65,12 @@ rules:
   - groups
   verbs:
   - impersonate
+- apiGroups:
+  - authentication.k8s.io
+  resources:
+  - userextras/authentication.k8s.io/pod-uid
+  - userextras/authentication.k8s.io/pod-name
+  - userextras/authentication.kubernetes.io/pod-uid
+  - userextras/authentication.kubernetes.io/pod-name
+  verbs:
+  - impersonate
