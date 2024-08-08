@@ -72,5 +72,8 @@ rules:
   - userextras/authentication.k8s.io/pod-name
   - userextras/authentication.kubernetes.io/pod-uid
   - userextras/authentication.kubernetes.io/pod-name
+  - userextras/authentication.kubernetes.io/node-uid
+  - userextras/authentication.kubernetes.io/node-name
+  - userextras/authentication.kubernetes.io/credential-id
   verbs:
   - impersonate
