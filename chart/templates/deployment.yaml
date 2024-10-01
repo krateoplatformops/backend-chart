@@ -40,6 +40,7 @@ spec:
             - --cert-dir=/tmp/certs
             - --v=3
             - --tidy=true
+            - --impersonate=true
           ports:
             - name: https
               containerPort: {{ .Values.service.port }}
