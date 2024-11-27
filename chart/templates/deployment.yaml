@@ -29,18 +29,14 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "backend.fullname" . }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "backend.fullname" . }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args:
-            - --authn-namespace={{ .Release.Namespace }}
-            - --etcd-servers={{ .Values.etcd.service.name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.etcd.service.port }}
-            - --cert-dir=/tmp/certs
-            - --v=3
-            - --tidy=true
-            - --impersonate=true
           ports:
             - name: https
               containerPort: {{ .Values.service.port }}
