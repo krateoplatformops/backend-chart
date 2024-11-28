@@ -87,9 +87,3 @@ etcd:
   service:
     name: etcd
     port: 2379
-
-env:
-  cert-dir: "/tmp/certs"
-  v: "3"
-  tidy: "true"
-  impersonate: "true"
