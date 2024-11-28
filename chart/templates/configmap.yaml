@@ -5,8 +5,6 @@ metadata:
   labels:
     {{- include "backend.labels" . | nindent 4 }}
 data:
-  authn-namespace: {{ .Release.Namespace }}
-  etcd-servers: {{ .Values.etcd.service.name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.etcd.service.port }}
   {{- range $key, $value := .Values.env }}
   {{ $key }}: {{ $value | quote }}
   {{- end }}
