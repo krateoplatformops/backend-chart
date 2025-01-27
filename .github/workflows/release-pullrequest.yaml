@@ -10,11 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Authenticate with GitHub App
+        id: authenticate
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+
       - name: Extract latest App Version
         uses: tdemin/find-latest-tag@v1
         id: app_version
         with:
-          repo: https://${{ secrets.HELM_CHARTS_BOT }}@github.com/krateoplatformops/backend.git
+          repo: https://${{ steps.authenticate.outputs.token }}@github.com/krateoplatformops/backend.git
 
       - name: Print latest App Version
         run: echo ${{ steps.app_version.outputs.tag }}
